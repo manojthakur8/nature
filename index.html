@@ -1,188 +1,219 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nature Scene</title>
+<title>Animated Nature</title>
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-    overflow:hidden;
-    font-family:Arial,sans-serif;
+overflow:hidden;
 }
 
 .scene{
-    width:100vw;
-    height:100vh;
-    position:relative;
-    background:linear-gradient(#87CEEB,#c9f3ff 55%,#4CAF50 55%);
+width:100%;
+height:100vh;
+background:linear-gradient(#87CEEB,#BFEFFF 60%,#4CAF50 60%);
+position:relative;
 }
 
 /* Sun */
 .sun{
-    position:absolute;
-    top:40px;
-    right:80px;
-    width:100px;
-    height:100px;
-    background:#FFD700;
-    border-radius:50%;
-    box-shadow:0 0 50px #FFD700;
+position:absolute;
+top:40px;
+right:80px;
+width:90px;
+height:90px;
+background:gold;
+border-radius:50%;
+box-shadow:0 0 60px gold;
+animation:shine 3s infinite alternate;
 }
 
-/* Mountains */
+@keyframes shine{
+from{transform:scale(1);}
+to{transform:scale(1.1);}
+}
+
+/* Clouds */
+.cloud{
+position:absolute;
+top:70px;
+left:-200px;
+width:180px;
+height:60px;
+background:white;
+border-radius:50px;
+animation:moveCloud 20s linear infinite;
+}
+
+.cloud::before{
+content:"";
+position:absolute;
+width:70px;
+height:70px;
+background:white;
+border-radius:50%;
+top:-25px;
+left:20px;
+}
+
+.cloud::after{
+content:"";
+position:absolute;
+width:80px;
+height:80px;
+background:white;
+border-radius:50%;
+top:-35px;
+right:20px;
+}
+
+@keyframes moveCloud{
+from{left:-220px;}
+to{left:110%;}
+}
+
+/* Mountain */
 .mountain{
-    position:absolute;
-    bottom:45%;
-    width:0;
-    height:0;
-    border-left:220px solid transparent;
-    border-right:220px solid transparent;
-    border-bottom:300px solid #5f6f52;
-}
-
-.m1{left:80px;}
-.m2{left:330px;}
-.m3{left:650px;}
-
-/* Ground */
-.ground{
-    position:absolute;
-    bottom:0;
-    width:100%;
-    height:45%;
-    background:#3CB371;
+position:absolute;
+bottom:40%;
+left:120px;
+width:0;
+height:0;
+border-left:180px solid transparent;
+border-right:180px solid transparent;
+border-bottom:250px solid #556B2F;
 }
 
 /* Tree */
 .tree{
-    position:absolute;
-    bottom:160px;
-    left:120px;
+position:absolute;
+bottom:140px;
+left:140px;
 }
 
 .trunk{
-    width:28px;
-    height:110px;
-    background:#7B4A12;
-    margin:auto;
+width:25px;
+height:90px;
+background:#6b3f18;
+margin:auto;
 }
 
 .leaves{
-    width:120px;
-    height:120px;
-    background:#228B22;
-    border-radius:50%;
-    margin-left:-46px;
+width:110px;
+height:110px;
+background:green;
+border-radius:50%;
+margin-left:-42px;
+animation:sway 2s ease-in-out infinite alternate;
+}
+
+@keyframes sway{
+from{transform:rotate(-4deg);}
+to{transform:rotate(4deg);}
 }
 
 /* Rock */
 .rock{
-    position:absolute;
-    bottom:120px;
-    left:58%;
-    width:120px;
-    height:45px;
-    background:#777;
-    border-radius:50px;
+position:absolute;
+bottom:90px;
+left:60%;
+width:120px;
+height:40px;
+background:#777;
+border-radius:50px;
 }
 
 /* Boy */
 .boy{
-    position:absolute;
-    bottom:160px;
-    left:61%;
+position:absolute;
+bottom:130px;
+left:63%;
+animation:float 2s infinite alternate;
 }
 
 .head{
-    width:28px;
-    height:28px;
-    background:#f2c59d;
-    border-radius:50%;
-    margin:auto;
+width:28px;
+height:28px;
+background:#ffcc99;
+border-radius:50%;
+margin:auto;
 }
 
 .body{
-    width:18px;
-    height:45px;
-    background:#1E90FF;
-    margin:0 auto;
+width:18px;
+height:45px;
+background:#2196F3;
+margin:auto;
 }
 
-.arm{
-    width:40px;
-    height:6px;
-    background:#f2c59d;
-    position:relative;
-    top:-38px;
-    left:-11px;
-    transform:rotate(10deg);
+.legs{
+width:40px;
+height:6px;
+background:#222;
+transform:rotate(25deg);
+margin-top:5px;
 }
 
-.leg1,.leg2{
-    width:6px;
-    height:38px;
-    background:#222;
-    position:absolute;
-    top:70px;
+@keyframes float{
+from{transform:translateY(0);}
+to{transform:translateY(-5px);}
 }
 
-.leg1{
-    left:8px;
-    transform:rotate(55deg);
+/* Birds */
+.bird{
+position:absolute;
+font-size:30px;
+animation:fly 12s linear infinite;
 }
 
-.leg2{
-    left:16px;
-    transform:rotate(80deg);
+.b1{
+top:120px;
+left:-100px;
 }
 
-.text{
-    position:absolute;
-    top:25px;
-    width:100%;
-    text-align:center;
-    font-size:40px;
-    color:white;
-    text-shadow:2px 2px 8px black;
+@keyframes fly{
+from{
+left:-100px;
+}
+to{
+left:110%;
+}
 }
 </style>
-</head>
 
+</head>
 <body>
 
 <div class="scene">
 
-<div class="text">🌿 Nature View 🌿</div>
-
 <div class="sun"></div>
 
-<div class="mountain m1"></div>
-<div class="mountain m2"></div>
-<div class="mountain m3"></div>
+<div class="cloud"></div>
+
+<div class="mountain"></div>
 
 <div class="tree">
-    <div class="leaves"></div>
-    <div class="trunk"></div>
+<div class="leaves"></div>
+<div class="trunk"></div>
 </div>
-
-<div class="ground"></div>
 
 <div class="rock"></div>
 
 <div class="boy">
-    <div class="head"></div>
-    <div class="body"></div>
-    <div class="arm"></div>
-    <div class="leg1"></div>
-    <div class="leg2"></div>
+<div class="head"></div>
+<div class="body"></div>
+<div class="legs"></div>
 </div>
+
+<div class="bird b1">🕊️</div>
 
 </div>
 
