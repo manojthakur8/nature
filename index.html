@@ -2,220 +2,102 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Animated Nature</title>
-
+<title>Walking Boy & Girl</title>
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
 body{
-overflow:hidden;
+    margin:0;
+    overflow:hidden;
+    background:linear-gradient(skyblue 60%,green 60%);
 }
 
-.scene{
-width:100%;
-height:100vh;
-background:linear-gradient(#87CEEB,#BFEFFF 60%,#4CAF50 60%);
-position:relative;
+.road{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:120px;
+    background:#555;
 }
 
-/* Sun */
-.sun{
-position:absolute;
-top:40px;
-right:80px;
-width:90px;
-height:90px;
-background:gold;
-border-radius:50%;
-box-shadow:0 0 60px gold;
-animation:shine 3s infinite alternate;
+.walk{
+    position:absolute;
+    bottom:120px;
+    left:-150px;
+    display:flex;
+    gap:40px;
+    animation:walk 12s linear infinite;
 }
 
-@keyframes shine{
-from{transform:scale(1);}
-to{transform:scale(1.1);}
+.person{
+    text-align:center;
+    animation:bounce .4s infinite alternate;
 }
 
-/* Clouds */
-.cloud{
-position:absolute;
-top:70px;
-left:-200px;
-width:180px;
-height:60px;
-background:white;
-border-radius:50px;
-animation:moveCloud 20s linear infinite;
+.face{
+    width:40px;
+    height:40px;
+    background:#ffd39b;
+    border-radius:50%;
+    margin:auto;
 }
 
-.cloud::before{
-content:"";
-position:absolute;
-width:70px;
-height:70px;
-background:white;
-border-radius:50%;
-top:-25px;
-left:20px;
+.boy .body{
+    width:24px;
+    height:55px;
+    background:#2196F3;
+    margin:auto;
 }
 
-.cloud::after{
-content:"";
-position:absolute;
-width:80px;
-height:80px;
-background:white;
-border-radius:50%;
-top:-35px;
-right:20px;
-}
-
-@keyframes moveCloud{
-from{left:-220px;}
-to{left:110%;}
-}
-
-/* Mountain */
-.mountain{
-position:absolute;
-bottom:40%;
-left:120px;
-width:0;
-height:0;
-border-left:180px solid transparent;
-border-right:180px solid transparent;
-border-bottom:250px solid #556B2F;
-}
-
-/* Tree */
-.tree{
-position:absolute;
-bottom:140px;
-left:140px;
-}
-
-.trunk{
-width:25px;
-height:90px;
-background:#6b3f18;
-margin:auto;
-}
-
-.leaves{
-width:110px;
-height:110px;
-background:green;
-border-radius:50%;
-margin-left:-42px;
-animation:sway 2s ease-in-out infinite alternate;
-}
-
-@keyframes sway{
-from{transform:rotate(-4deg);}
-to{transform:rotate(4deg);}
-}
-
-/* Rock */
-.rock{
-position:absolute;
-bottom:90px;
-left:60%;
-width:120px;
-height:40px;
-background:#777;
-border-radius:50px;
-}
-
-/* Boy */
-.boy{
-position:absolute;
-bottom:130px;
-left:63%;
-animation:float 2s infinite alternate;
-}
-
-.head{
-width:28px;
-height:28px;
-background:#ffcc99;
-border-radius:50%;
-margin:auto;
-}
-
-.body{
-width:18px;
-height:45px;
-background:#2196F3;
-margin:auto;
+.girl .body{
+    width:24px;
+    height:55px;
+    background:#ff4081;
+    margin:auto;
 }
 
 .legs{
-width:40px;
-height:6px;
-background:#222;
-transform:rotate(25deg);
-margin-top:5px;
+    width:40px;
+    height:5px;
+    background:black;
+    margin:auto;
+    transform-origin:center;
+    animation:legs .4s infinite alternate;
 }
 
-@keyframes float{
-from{transform:translateY(0);}
-to{transform:translateY(-5px);}
+@keyframes walk{
+    from{left:-150px;}
+    to{left:110%;}
 }
 
-/* Birds */
-.bird{
-position:absolute;
-font-size:30px;
-animation:fly 12s linear infinite;
+@keyframes bounce{
+    from{transform:translateY(0);}
+    to{transform:translateY(-5px);}
 }
 
-.b1{
-top:120px;
-left:-100px;
-}
-
-@keyframes fly{
-from{
-left:-100px;
-}
-to{
-left:110%;
-}
+@keyframes legs{
+    from{transform:rotate(15deg);}
+    to{transform:rotate(-15deg);}
 }
 </style>
-
 </head>
 <body>
 
-<div class="scene">
+<div class="walk">
 
-<div class="sun"></div>
-
-<div class="cloud"></div>
-
-<div class="mountain"></div>
-
-<div class="tree">
-<div class="leaves"></div>
-<div class="trunk"></div>
-</div>
-
-<div class="rock"></div>
-
-<div class="boy">
-<div class="head"></div>
+<div class="person boy">
+<div class="face"></div>
 <div class="body"></div>
 <div class="legs"></div>
 </div>
 
-<div class="bird b1">🕊️</div>
+<div class="person girl">
+<div class="face"></div>
+<div class="body"></div>
+<div class="legs"></div>
+</div>
 
 </div>
+
+<div class="road"></div>
 
 </body>
 </html>
