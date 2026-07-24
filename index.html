@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Animated Image</title>
+<title>Fullscreen Animated Background</title>
 
 <style>
 *{
@@ -13,66 +13,85 @@
 }
 
 body{
+    overflow:hidden;
+    height:100vh;
+}
+
+/* Fullscreen Background */
+.bg{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:url("https://images.pexels.com/photos/11030301/pexels-photo-11030301.jpeg")
+    center center/cover no-repeat;
+
+    animation:
+        zoom 18s ease-in-out infinite alternate,
+        float 8s ease-in-out infinite;
+}
+
+/* Dark Overlay */
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.25);
+}
+
+/* Content */
+.content{
+    position:relative;
+    z-index:2;
+    height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
-    background:linear-gradient(135deg,#111,#222,#333);
-    overflow:hidden;
+    flex-direction:column;
+    color:white;
+    text-align:center;
+    font-family:Arial,sans-serif;
 }
 
-.image-box{
-    position:relative;
-    width:420px;
-    border-radius:20px;
-    overflow:hidden;
-    animation:float 4s ease-in-out infinite;
-    box-shadow:0 20px 50px rgba(0,0,0,.5);
+.content h1{
+    font-size:60px;
+    text-shadow:0 5px 20px rgba(0,0,0,.6);
+    animation:fadeUp 2s ease;
 }
 
-.image-box img{
-    width:100%;
-    display:block;
-    transition:transform .6s ease;
+.content p{
+    margin-top:15px;
+    font-size:22px;
+    animation:fadeUp 2.5s ease;
 }
 
-.image-box:hover img{
-    transform:scale(1.08);
-}
-
-/* Shine Effect */
-.image-box::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:-120%;
-    width:60%;
-    height:100%;
-    background:linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,255,255,.5),
-        transparent
-    );
-    transform:skewX(-25deg);
-}
-
-.image-box:hover::before{
-    animation:shine 1s linear;
-}
-
-@keyframes shine{
-    100%{
-        left:160%;
+/* Animations */
+@keyframes zoom{
+    from{
+        transform:scale(1);
+    }
+    to{
+        transform:scale(1.15);
     }
 }
 
 @keyframes float{
     0%,100%{
-        transform:translateY(0px);
+        filter:brightness(1);
     }
     50%{
-        transform:translateY(-18px);
+        filter:brightness(1.08);
+    }
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
     }
 }
 </style>
@@ -80,8 +99,12 @@ body{
 </head>
 <body>
 
-<div class="image-box">
-    <img src="https://images.pexels.com/photos/11030301/pexels-photo-11030301.jpeg" alt="Animated Image">
+<div class="bg"></div>
+<div class="overlay"></div>
+
+<div class="content">
+    <h1>Welcome</h1>
+    <p>Fullscreen Animated Background</p>
 </div>
 
 </body>
