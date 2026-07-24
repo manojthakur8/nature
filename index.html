@@ -1,1 +1,88 @@
-<img style="display: block;-webkit-user-select: none;margin: auto;cursor: zoom-out;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://images.pexels.com/photos/11030301/pexels-photo-11030301.jpeg" width="5659" height="4000">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Image</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:linear-gradient(135deg,#111,#222,#333);
+    overflow:hidden;
+}
+
+.image-box{
+    position:relative;
+    width:420px;
+    border-radius:20px;
+    overflow:hidden;
+    animation:float 4s ease-in-out infinite;
+    box-shadow:0 20px 50px rgba(0,0,0,.5);
+}
+
+.image-box img{
+    width:100%;
+    display:block;
+    transition:transform .6s ease;
+}
+
+.image-box:hover img{
+    transform:scale(1.08);
+}
+
+/* Shine Effect */
+.image-box::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:60%;
+    height:100%;
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.5),
+        transparent
+    );
+    transform:skewX(-25deg);
+}
+
+.image-box:hover::before{
+    animation:shine 1s linear;
+}
+
+@keyframes shine{
+    100%{
+        left:160%;
+    }
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-18px);
+    }
+}
+</style>
+
+</head>
+<body>
+
+<div class="image-box">
+    <img src="https://images.pexels.com/photos/11030301/pexels-photo-11030301.jpeg" alt="Animated Image">
+</div>
+
+</body>
+</html>
