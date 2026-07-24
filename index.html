@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nature Scene</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+    font-family:Arial,sans-serif;
+}
+
+.scene{
+    width:100vw;
+    height:100vh;
+    position:relative;
+    background:linear-gradient(#87CEEB,#c9f3ff 55%,#4CAF50 55%);
+}
+
+/* Sun */
+.sun{
+    position:absolute;
+    top:40px;
+    right:80px;
+    width:100px;
+    height:100px;
+    background:#FFD700;
+    border-radius:50%;
+    box-shadow:0 0 50px #FFD700;
+}
+
+/* Mountains */
+.mountain{
+    position:absolute;
+    bottom:45%;
+    width:0;
+    height:0;
+    border-left:220px solid transparent;
+    border-right:220px solid transparent;
+    border-bottom:300px solid #5f6f52;
+}
+
+.m1{left:80px;}
+.m2{left:330px;}
+.m3{left:650px;}
+
+/* Ground */
+.ground{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:45%;
+    background:#3CB371;
+}
+
+/* Tree */
+.tree{
+    position:absolute;
+    bottom:160px;
+    left:120px;
+}
+
+.trunk{
+    width:28px;
+    height:110px;
+    background:#7B4A12;
+    margin:auto;
+}
+
+.leaves{
+    width:120px;
+    height:120px;
+    background:#228B22;
+    border-radius:50%;
+    margin-left:-46px;
+}
+
+/* Rock */
+.rock{
+    position:absolute;
+    bottom:120px;
+    left:58%;
+    width:120px;
+    height:45px;
+    background:#777;
+    border-radius:50px;
+}
+
+/* Boy */
+.boy{
+    position:absolute;
+    bottom:160px;
+    left:61%;
+}
+
+.head{
+    width:28px;
+    height:28px;
+    background:#f2c59d;
+    border-radius:50%;
+    margin:auto;
+}
+
+.body{
+    width:18px;
+    height:45px;
+    background:#1E90FF;
+    margin:0 auto;
+}
+
+.arm{
+    width:40px;
+    height:6px;
+    background:#f2c59d;
+    position:relative;
+    top:-38px;
+    left:-11px;
+    transform:rotate(10deg);
+}
+
+.leg1,.leg2{
+    width:6px;
+    height:38px;
+    background:#222;
+    position:absolute;
+    top:70px;
+}
+
+.leg1{
+    left:8px;
+    transform:rotate(55deg);
+}
+
+.leg2{
+    left:16px;
+    transform:rotate(80deg);
+}
+
+.text{
+    position:absolute;
+    top:25px;
+    width:100%;
+    text-align:center;
+    font-size:40px;
+    color:white;
+    text-shadow:2px 2px 8px black;
+}
+</style>
+</head>
+
+<body>
+
+<div class="scene">
+
+<div class="text">🌿 Nature View 🌿</div>
+
+<div class="sun"></div>
+
+<div class="mountain m1"></div>
+<div class="mountain m2"></div>
+<div class="mountain m3"></div>
+
+<div class="tree">
+    <div class="leaves"></div>
+    <div class="trunk"></div>
+</div>
+
+<div class="ground"></div>
+
+<div class="rock"></div>
+
+<div class="boy">
+    <div class="head"></div>
+    <div class="body"></div>
+    <div class="arm"></div>
+    <div class="leg1"></div>
+    <div class="leg2"></div>
+</div>
+
+</div>
+
+</body>
+</html>
