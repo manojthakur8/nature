@@ -2,102 +2,210 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Walking Boy & Girl</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Landing Page</title>
+
 <style>
-body{
+*{
     margin:0;
-    overflow:hidden;
-    background:linear-gradient(skyblue 60%,green 60%);
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
-.road{
-    position:absolute;
-    bottom:0;
-    width:100%;
-    height:120px;
-    background:#555;
+body{
+    background:#f5f7fa;
+    color:#333;
 }
 
-.walk{
-    position:absolute;
-    bottom:120px;
-    left:-150px;
+header{
     display:flex;
-    gap:40px;
-    animation:walk 12s linear infinite;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:#fff;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
 }
 
-.person{
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#4f46e5;
+}
+
+nav a{
+    text-decoration:none;
+    color:#333;
+    margin-left:20px;
+    font-weight:600;
+}
+
+.hero{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:80px 8%;
+    flex-wrap:wrap;
+}
+
+.hero-text{
+    flex:1;
+    min-width:300px;
+}
+
+.hero-text h1{
+    font-size:50px;
+    margin-bottom:20px;
+}
+
+.hero-text p{
+    font-size:18px;
+    color:#666;
+    line-height:1.6;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+    background:#4f46e5;
+    color:white;
+    padding:14px 28px;
+    border-radius:8px;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#3730a3;
+}
+
+.hero-image{
+    flex:1;
     text-align:center;
-    animation:bounce .4s infinite alternate;
+    min-width:300px;
 }
 
-.face{
-    width:40px;
-    height:40px;
-    background:#ffd39b;
-    border-radius:50%;
-    margin:auto;
+.hero-image img{
+    width:100%;
+    max-width:500px;
 }
 
-.boy .body{
-    width:24px;
-    height:55px;
-    background:#2196F3;
-    margin:auto;
+.features{
+    padding:80px 8%;
+    background:#fff;
 }
 
-.girl .body{
-    width:24px;
-    height:55px;
-    background:#ff4081;
-    margin:auto;
+.features h2{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:36px;
 }
 
-.legs{
-    width:40px;
-    height:5px;
-    background:black;
-    margin:auto;
-    transform-origin:center;
-    animation:legs .4s infinite alternate;
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
 }
 
-@keyframes walk{
-    from{left:-150px;}
-    to{left:110%;}
+.card{
+    background:#f8f9ff;
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+    transition:.3s;
 }
 
-@keyframes bounce{
-    from{transform:translateY(0);}
-    to{transform:translateY(-5px);}
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 20px rgba(0,0,0,.1);
 }
 
-@keyframes legs{
-    from{transform:rotate(15deg);}
-    to{transform:rotate(-15deg);}
+.card h3{
+    margin:15px 0;
+}
+
+footer{
+    text-align:center;
+    padding:25px;
+    background:#111827;
+    color:white;
+}
+
+@media(max-width:768px){
+.hero{
+    flex-direction:column;
+    text-align:center;
+}
+.hero-text h1{
+    font-size:38px;
+}
+nav{
+    display:none;
+}
 }
 </style>
+
 </head>
 <body>
 
-<div class="walk">
+<header>
+<div class="logo">MyBrand</div>
 
-<div class="person boy">
-<div class="face"></div>
-<div class="body"></div>
-<div class="legs"></div>
+<nav>
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+
+<div class="hero-text">
+<h1>Build Your Dream Website</h1>
+<p>
+Create beautiful, modern and responsive websites with ease.
+Start your online journey today.
+</p>
+
+<a href="#" class="btn">Get Started</a>
+
 </div>
 
-<div class="person girl">
-<div class="face"></div>
-<div class="body"></div>
-<div class="legs"></div>
+<div class="hero-image">
+<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800" alt="Hero Image">
+</div>
+
+</section>
+
+<section class="features">
+
+<h2>Our Features</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>⚡ Fast</h3>
+<p>Lightning fast performance with modern technologies.</p>
+</div>
+
+<div class="card">
+<h3>📱 Responsive</h3>
+<p>Looks perfect on desktop, tablet and mobile devices.</p>
+</div>
+
+<div class="card">
+<h3>🔒 Secure</h3>
+<p>Built with security and reliability in mind.</p>
 </div>
 
 </div>
 
-<div class="road"></div>
+</section>
+
+<footer>
+© 2026 MyBrand. All Rights Reserved.
+</footer>
 
 </body>
 </html>
