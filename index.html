@@ -3,104 +3,281 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Earth Scroll Animation</title>
+<title>Lovely Landing Page</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
 }
 
 body{
-    height:400vh;
-    background:#000;
-    overflow-x:hidden;
-    font-family:Arial;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+overflow-x:hidden;
+color:#fff;
 }
 
-.section{
-    position:sticky;
-    top:0;
-    width:100%;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+/* Navbar */
+
+header{
+width:90%;
+margin:auto;
+margin-top:20px;
+padding:18px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+border-radius:50px;
+border:1px solid rgba(255,255,255,.2);
 }
 
-.earth{
-    position:relative;
-    width:420px;
-    height:420px;
+.logo{
+font-size:30px;
+font-weight:700;
+color:#00ffd5;
 }
 
-.left,.right{
-    position:absolute;
-    width:50%;
-    height:100%;
-    background-image:url("https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg");
-    background-size:420px 420px;
-    transition:0.1s linear;
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+transition:.4s;
 }
 
-.left{
-    left:0;
-    background-position:left;
-    clip-path:polygon(0 0,100% 0,100% 100%,0 100%);
+nav a:hover{
+color:#00ffd5;
 }
 
-.right{
-    right:0;
-    background-position:right;
-    clip-path:polygon(0 0,100% 0,100% 100%,0 100%);
+/* Hero */
+
+.hero{
+min-height:90vh;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 8%;
+flex-wrap:wrap;
 }
 
-.text{
-    position:absolute;
-    bottom:80px;
-    color:white;
-    font-size:40px;
-    letter-spacing:2px;
+.content{
+max-width:600px;
+animation:fadeUp 1s ease;
 }
+
+.content h1{
+font-size:65px;
+line-height:1.1;
+margin-bottom:20px;
+}
+
+.content h1 span{
+color:#00ffd5;
+}
+
+.content p{
+font-size:18px;
+line-height:1.8;
+opacity:.9;
+margin-bottom:35px;
+}
+
+.btn{
+display:inline-block;
+padding:15px 40px;
+background:#00ffd5;
+color:#111;
+font-weight:bold;
+border-radius:50px;
+text-decoration:none;
+transition:.4s;
+box-shadow:0 0 20px #00ffd5;
+}
+
+.btn:hover{
+transform:translateY(-5px);
+box-shadow:0 0 40px #00ffd5;
+}
+
+/* Hero Circle */
+
+.circle{
+width:450px;
+height:450px;
+border-radius:50%;
+background:linear-gradient(45deg,#00ffd5,#00a2ff,#8b5cf6);
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:160px;
+box-shadow:0 0 80px rgba(0,255,213,.5);
+animation:float 5s ease-in-out infinite;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+padding:80px 8%;
+}
+
+.card{
+background:rgba(255,255,255,.08);
+padding:35px;
+border-radius:20px;
+backdrop-filter:blur(20px);
+transition:.4s;
+text-align:center;
+}
+
+.card:hover{
+transform:translateY(-10px);
+background:rgba(255,255,255,.15);
+}
+
+.card h2{
+margin:15px 0;
+color:#00ffd5;
+}
+
+footer{
+text-align:center;
+padding:40px;
+font-size:15px;
+opacity:.8;
+}
+
+@keyframes float{
+
+0%{transform:translateY(0px);}
+50%{transform:translateY(-25px);}
+100%{transform:translateY(0px);}
+
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+@media(max-width:900px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+padding-top:50px;
+}
+
+.circle{
+margin-top:50px;
+width:300px;
+height:300px;
+font-size:120px;
+}
+
+.content h1{
+font-size:45px;
+}
+
+header{
+flex-direction:column;
+gap:15px;
+border-radius:25px;
+}
+
+nav{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+}
+
 </style>
-
 </head>
+
 <body>
 
-<div class="section">
+<header>
 
-    <div class="earth">
-        <div class="left"></div>
-        <div class="right"></div>
-    </div>
+<div class="logo">Nova✨</div>
 
-    <div class="text">
-        Scroll Down
-    </div>
+<nav>
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Portfolio</a>
+<a href="#">Contact</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="content">
+
+<h1>Create <span>Beautiful</span><br>Digital Experiences</h1>
+
+<p>
+Design modern websites with stunning animations,
+beautiful layouts, and premium user experience.
+Turn your ideas into reality.
+</p>
+
+<a href="#" class="btn">Get Started</a>
 
 </div>
 
-<script>
+<div class="circle">
+🚀
+</div>
 
-const left=document.querySelector(".left");
-const right=document.querySelector(".right");
+</section>
 
-window.addEventListener("scroll",()=>{
+<section class="cards">
 
-let max=window.innerHeight*2;
+<div class="card">
+<h2>⚡ Fast</h2>
+<p>Lightning-fast performance with a clean and modern design.</p>
+</div>
 
-let p=Math.min(window.scrollY/max,1);
+<div class="card">
+<h2>🎨 Creative</h2>
+<p>Beautiful layouts and elegant UI for every device.</p>
+</div>
 
-let move=220*Math.sin(p*Math.PI);
+<div class="card">
+<h2>📱 Responsive</h2>
+<p>Looks amazing on desktop, tablet, and mobile phones.</p>
+</div>
 
-left.style.transform=`translateX(${-move}px)`;
+<div class="card">
+<h2>💎 Premium</h2>
+<p>Professional appearance inspired by top product websites.</p>
+</div>
 
-right.style.transform=`translateX(${move}px)`;
+</section>
 
-});
+<footer>
 
-</script>
+© 2026 Nova Landing Page • Crafted with ❤️
+
+</footer>
 
 </body>
 </html>
