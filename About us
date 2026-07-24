@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Landing Page</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#fff;
+}
+
+.container{
+    text-align:center;
+    width:90%;
+    max-width:700px;
+}
+
+.logo{
+    font-size:72px;
+    font-weight:bold;
+    margin-bottom:30px;
+    letter-spacing:-2px;
+}
+
+.logo span:nth-child(1){color:#4285F4;}
+.logo span:nth-child(2){color:#EA4335;}
+.logo span:nth-child(3){color:#FBBC05;}
+.logo span:nth-child(4){color:#4285F4;}
+.logo span:nth-child(5){color:#34A853;}
+.logo span:nth-child(6){color:#EA4335;}
+
+.search-box{
+    width:100%;
+    padding:15px 20px;
+    border:1px solid #ddd;
+    border-radius:40px;
+    font-size:18px;
+    outline:none;
+    transition:.3s;
+}
+
+.search-box:focus{
+    box-shadow:0 2px 10px rgba(0,0,0,.2);
+}
+
+.buttons{
+    margin-top:25px;
+}
+
+button{
+    padding:12px 25px;
+    margin:5px;
+    border:none;
+    background:#f8f9fa;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:15px;
+}
+
+button:hover{
+    box-shadow:0 2px 6px rgba(0,0,0,.2);
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<div class="logo">
+<span>S</span><span>e</span><span>a</span><span>r</span><span>c</span><span>h</span>
+</div>
+
+<input type="text" class="search-box" placeholder="Search anything...">
+
+<div class="buttons">
+<button>Search</button>
+<button>I'm Feeling Lucky</button>
+</div>
+
+</div>
+
+</body>
+</html>
