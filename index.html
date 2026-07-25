@@ -3,94 +3,213 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Search Landing Page</title>
+<title>Nature Sky Theme</title>
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:#fff;
+overflow:hidden;
 }
 
-.container{
-    text-align:center;
-    width:90%;
-    max-width:700px;
+.scene{
+position:relative;
+width:100%;
+height:100vh;
+background:linear-gradient(#63b8ff,#bfe9ff);
 }
 
-.logo{
-    font-size:72px;
-    font-weight:bold;
-    margin-bottom:30px;
-    letter-spacing:-2px;
+/* Sun */
+
+.sun{
+position:absolute;
+top:60px;
+right:100px;
+width:100px;
+height:100px;
+background:#FFD54F;
+border-radius:50%;
+box-shadow:0 0 60px #FFD54F;
 }
 
-.logo span:nth-child(1){color:#4285F4;}
-.logo span:nth-child(2){color:#EA4335;}
-.logo span:nth-child(3){color:#FBBC05;}
-.logo span:nth-child(4){color:#4285F4;}
-.logo span:nth-child(5){color:#34A853;}
-.logo span:nth-child(6){color:#EA4335;}
+/* Clouds */
 
-.search-box{
-    width:100%;
-    padding:15px 20px;
-    border:1px solid #ddd;
-    border-radius:40px;
-    font-size:18px;
-    outline:none;
-    transition:.3s;
+.cloud{
+position:absolute;
+width:180px;
+height:60px;
+background:white;
+border-radius:50px;
+animation:moveCloud 35s linear infinite;
 }
 
-.search-box:focus{
-    box-shadow:0 2px 10px rgba(0,0,0,.2);
+.cloud::before,
+.cloud::after{
+content:"";
+position:absolute;
+background:white;
+border-radius:50%;
 }
 
-.buttons{
-    margin-top:25px;
+.cloud::before{
+width:70px;
+height:70px;
+left:20px;
+top:-30px;
 }
 
-button{
-    padding:12px 25px;
-    margin:5px;
-    border:none;
-    background:#f8f9fa;
-    border-radius:5px;
-    cursor:pointer;
-    font-size:15px;
+.cloud::after{
+width:90px;
+height:90px;
+right:20px;
+top:-40px;
 }
 
-button:hover{
-    box-shadow:0 2px 6px rgba(0,0,0,.2);
+.cloud1{top:80px;left:-220px;}
+.cloud2{top:180px;left:-350px;animation-duration:50s;}
+.cloud3{top:280px;left:-150px;animation-duration:45s;}
+
+@keyframes moveCloud{
+from{transform:translateX(0);}
+to{transform:translateX(1800px);}
 }
+
+/* Birds */
+
+.bird{
+position:absolute;
+font-size:30px;
+animation:birdFly 18s linear infinite;
+}
+
+.b1{top:120px;}
+.b2{top:180px;animation-delay:4s;}
+.b3{top:250px;animation-delay:8s;}
+
+@keyframes birdFly{
+from{left:-100px;}
+to{left:110%;}
+}
+
+/* Mountains */
+
+.mountain{
+position:absolute;
+bottom:120px;
+width:0;
+height:0;
+border-left:220px solid transparent;
+border-right:220px solid transparent;
+border-bottom:300px solid #607D8B;
+}
+
+.m1{left:-60px;}
+.m2{left:220px;border-bottom-color:#546E7A;}
+.m3{left:520px;}
+.m4{right:-80px;}
+
+/* Grass */
+
+.grass{
+position:absolute;
+bottom:0;
+width:100%;
+height:140px;
+background:#2E7D32;
+overflow:hidden;
+}
+
+.blade{
+position:absolute;
+bottom:0;
+width:3px;
+height:60px;
+background:#8BC34A;
+transform-origin:bottom;
+animation:wind 2s ease-in-out infinite;
+}
+
+@keyframes wind{
+0%,100%{transform:rotate(-8deg);}
+50%{transform:rotate(8deg);}
+}
+
+/* Text */
+
+.text{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+text-align:center;
+color:white;
+text-shadow:2px 2px 10px rgba(0,0,0,.4);
+}
+
+.text h1{
+font-size:60px;
+}
+
+.text p{
+font-size:22px;
+margin-top:15px;
+}
+
 </style>
 
 </head>
+
 <body>
 
-<div class="container">
+<div class="scene">
 
-<div class="logo">
-<span>S</span><span>e</span><span>a</span><span>r</span><span>c</span><span>h</span>
+<div class="sun"></div>
+
+<div class="cloud cloud1"></div>
+<div class="cloud cloud2"></div>
+<div class="cloud cloud3"></div>
+
+<div class="bird b1">🕊️</div>
+<div class="bird b2">🕊️</div>
+<div class="bird b3">🕊️</div>
+
+<div class="mountain m1"></div>
+<div class="mountain m2"></div>
+<div class="mountain m3"></div>
+<div class="mountain m4"></div>
+
+<div class="text">
+<h1>Welcome</h1>
+<p>Beautiful Sky • Mountains • Birds • Wind</p>
 </div>
 
-<input type="text" class="search-box" placeholder="Search anything...">
-
-<div class="buttons">
-<button>Search</button>
-<button>I'm Feeling Lucky</button>
-</div>
+<div class="grass" id="grass"></div>
 
 </div>
+
+<script>
+const grass=document.getElementById("grass");
+
+for(let i=0;i<400;i++){
+
+let blade=document.createElement("div");
+
+blade.className="blade";
+
+blade.style.left=(i*5)+"px";
+
+blade.style.height=(30+Math.random()*50)+"px";
+
+blade.style.animationDelay=Math.random()*2+"s";
+
+grass.appendChild(blade);
+
+}
+</script>
 
 </body>
 </html>
